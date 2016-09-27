@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
-  get 'static_pages/about'
-  get 'static_pages/contact'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
+  get '/help', to: 'static_pages#help'
+  # 这个规则会定义两个具名路由变量，分别是 help_path 和 help_url
+  # help_path -> '/help'
+  # help_url  -> 'http://www.example.com/help'
+
+  get '/about', to: 'static_pages#about'
+  get '/contact', to: 'static_pages#contact'
 end
