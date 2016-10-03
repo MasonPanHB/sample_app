@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   root 'static_pages#home'
+  
   get '/help', to: 'static_pages#help'
   # 这个规则会定义两个具名路由变量，分别是 help_path 和 help_url
   # help_path -> '/help'
@@ -13,4 +12,8 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   resources :users
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
