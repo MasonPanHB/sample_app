@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
-  
-  get '/help', to: 'static_pages#help'
-  # 这个规则会定义两个具名路由变量，分别是 help_path 和 help_url
-  # help_path -> '/help'
-  # help_url  -> 'http://www.example.com/help'
+    root 'static_pages#home'
 
-  get '/about', to: 'static_pages#about'
-  get '/contact', to: 'static_pages#contact'
-  get '/signup', to: 'users#new'
-  post '/signup', to: 'users#create'
+    get '/help', to: 'static_pages#help'
+    # 这个规则会定义两个具名路由变量，分别是 help_path 和 help_url
+    # help_path -> '/help'
+    # help_url  -> 'http://www.example.com/help'
 
-  resources :users
+    resources :users
+    get '/about', to: 'static_pages#about'
+    get '/contact', to: 'static_pages#contact'
+    get '/signup', to: 'users#new'
+    post '/signup', to: 'users#create'
 
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+    get '/login', to: 'sessions#new'
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy'
 end

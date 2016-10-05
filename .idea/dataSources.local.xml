@@ -11,5 +11,9 @@
       <auth-required>false</auth-required>
       <first-sync>true</first-sync>
     </data-source>
+    <data-source name="Rails sample_app: production" uuid="2908db61-33f8-4ce9-a868-25dfbf181158">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>
