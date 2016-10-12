@@ -2,11 +2,12 @@ module SessionsHelper
     # helper methods aren't available in tests
     def log_in(user)
         session[:user_id] = user.id
+        # 在用户的浏览器中创建一个临时 session
     end
 
-    # 在持久会话中记住用户
+    # 在持久会话 cookie 中记住用户
     def remember(user)
-        user.remember
+        user.remember   # 把 remember_digest 保存到数据库
         cookies.permanent.signed[:user_id] = user.id
         cookies.permanent[:remember_token] = user.remember_token
     end
@@ -22,11 +23,6 @@ module SessionsHelper
                 @current_user = user
             end
         end
-    end
-
-    # 返回当前登录的用户(如果有的话)
-    def current_user
-        @current_user ||= User.find_by(id: session[:user_id])
     end
 
     def logged_in?
